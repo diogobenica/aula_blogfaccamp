@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script src="js/jquery-2.0.3.js"></script>
+  </head>
+  <body>
+    <input id="campo">
+    <button id="botao">Adicionar</button>
+    <div id="conteudo"></div>
+
+    <script>
+      function copiaConteudo() {
+        var valor = $("#campo").val();
+        alert(valor);
+        $("#conteudo").append(valor);
+      }
+      $("#botao").click(copiaConteudo);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script src="js/jquery-2.0.3.js"></script>
+  </head>
+  <body>
+    <button id="criar">Criar</button>
+    <button id="alterar">Alterar</button>
+    <script>
+      function criaImagem() {
+        var imagem = $("<img>");
+        imagem.attr("src", "cachorro.jpg");
+        imagem.attr("class", "minha_imagem");
+        $("body").append(imagem);
+      }
+      $("#criar").click(criaImagem);
+
+      function alteraImagem() {
+        $(".minha_imagem").attr("src", "gato.jpg");
+      }
+      $("#alterar").click(alteraImagem);
+    </script>
+  </body>
+</html>

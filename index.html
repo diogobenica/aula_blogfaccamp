@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script src="js/jquery-2.0.3.js"></script>
+  </head>
+  <body>
+    <div id="box">Texto da minha div</div>
+    <input id="campo" value="preenchido">
+    <div class="invisivel">Vou sumir :(</div>
+    <div class="invisivel">Vou sumir também :(</div>
+    <img src="http://oglobo.globo.com/in/7793194-3b2-5d5/FT712A/2013030971089.jpg">
+    <script>
+      // Seleciona e mostra o conteúdo no alert
+      var div = $("#box");
+      alert(div.html());
+      // Substitui conteúdo
+      div.html("Mudei o conteudo");
+      // Adiciona após o conteúdo
+      div.append(" e adicionei mais coisas");
+      // Seleciona campo e mostra conteúdo
+      var campo = $("#campo");
+      alert(campo.val());
+      // Selecionar e esconder um elemento
+      $(".invisivel").hide();
+      // Selecionar e mostrar um elemento
+      $(".invisivel").show();
+      // Criar elemento
+      var elemento = $("<div>");
+      elemento.html("Criando um elemento novo");
+      $("body").append(elemento);
+      // Alterar atributos
+      elemento.attr("id", "nova_div");
+      elemento.attr("class", "nova_class");
+      // Recuperando um atributo
+      var atributo = elemento.attr("id");
+      alert(atributo);
+    </script>
+  </body>
+</html>

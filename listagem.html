@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="js/jquery-2.0.3.js"></script>
+  <style>
+  .post {
+    border: solid 1px #c0c0c0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  </style>
+</head>
+<body>
+  <div>
+    Busca: <input id="campo_busca">
+    <button id="botao">Procurar post</button>
+  </div>
+  <div id="lista_de_posts"></div>
+  <script>
+    function mostraPost(){
+      alert($(this).attr('id'));
+    }
+    function listaPosts(){
+      var valor = $("#campo_busca").val();
+      $.ajax({
+        url:"http://faccampblog.appspot.com/posts?q=" + valor,
+        dataType: 'jsonp',
+        success: function(posts){
+          $("#lista_de_posts").html("");
+          $.each(posts,
+            function(contador, post){
+              var div = $("<div>");
+              div.attr("class", "post");
+
+              var titulo = $("<h1>").html(post.titulo);
+              titulo.attr('id', post.id);
+              titulo.click(mostraPost);
+              div.append(titulo);
+
+              $("#lista_de_posts").append(div);
+            }
+          );
+        }
+      });
+    }
+
+    listaPosts();
+
+    $("#botao").click(listaPosts);
+  </script>
+</body>
+</html>
