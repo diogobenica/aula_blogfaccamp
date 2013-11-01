@@ -67,7 +67,7 @@
         }
 
         $.post("/posts",
-          {titulo: titulo, conteudo: conteudo},
+          {titulo: titulo, conteudo: conteudo, subtitulo: subtitulo, autor: autor},
           function(){
             alert("Dados gravados com sucesso!");
           }

@@ -19,7 +19,34 @@
   <div id="lista_de_posts"></div>
   <script>
     function mostraPost(){
-      alert($(this).attr('id'));
+      var id_post = $(this).attr('id');
+      $.ajax({
+        url:"http://faccampblog.appspot.com/posts?id=" + id_post,
+        dataType: 'jsonp',
+        success: function(posts){
+          $("#lista_de_posts").html("");
+          $.each(posts,
+            function(contador, post){
+              var div = $("<div>");
+              div.attr("class", "post");
+
+              var titulo = $("<h1>").html(post.titulo);
+              div.append(titulo);
+
+              var subtitulo = $("<h2>").html(post.subtitulo);
+              div.append(subtitulo);
+
+              var autor = $("<span>").html(post.autor);
+              div.append(autor);
+
+              var conteudo = $("<div>").html(post.conteudo);
+              div.append(conteudo);
+
+              $("#lista_de_posts").append(div);
+            }
+          );
+        }
+      });
     }
     function listaPosts(){
       var valor = $("#campo_busca").val();
