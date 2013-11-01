@@ -48,6 +48,17 @@
         }
       });
     }
+    function excluirPost(){
+      var id = $(this).attr('id_post');
+      $.ajax({
+        url: "http://faccampblog.appspot.com/posts?deletar=" + id,
+        dataType: 'jsonp',
+        success: function(){
+          alert("O post foi excluído com sucesso!");
+          window.location = window.location;
+        }
+      });
+    }
     function listaPosts(){
       var valor = $("#campo_busca").val();
       $.ajax({
@@ -64,6 +75,11 @@
               titulo.attr('id', post.id);
               titulo.click(mostraPost);
               div.append(titulo);
+
+              var botao = $("<button>").html("Excluir");
+              botao.attr('id_post', post.id);
+              botao.click(excluirPost);
+              div.append(botao);
 
               $("#lista_de_posts").append(div);
             }
