@@ -1,0 +1,17 @@
+body {
+  background-color: #e0e0e0;
+}
+.formulario {
+  border: 5px solid #d0d0d0;
+  background-color: #f5f5f5;
+  padding: 25px;
+  width: 350px;
+  margin: 0 auto;
+}
+.titulo {
+  font-family: Arial;
+}
+.erro {
+  border: solid 1px red;
+  background-color: #F0BDBF;
+}
