@@ -21,7 +21,7 @@ if(erros != ""){
   return false;
 }
 
-$.post("/posts",
+$.post("http://faccampblog.appspot.com/posts",
   {titulo: titulo, conteudo: conteudo, subtitulo: subtitulo, autor: autor},
   function(){
     alert("Dados gravados com sucesso!");
